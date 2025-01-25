@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 22:28:58 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/01/25 00:43:14 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/01/25 04:45:47 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS	=	ft_isalpha.c\
 	ft_strchr.c\
 	ft_strrchr.c\
 	ft_strncmp.c\
+	ft_strcmp.c\
 	ft_memset.c\
 	ft_bzero.c\
 	ft_memcpy.c\

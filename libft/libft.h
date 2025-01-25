@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:48:23 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/24 20:01:22 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/25 04:46:18 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	ft_putendlfd(char *s, int fd);
 void	ft_putnbrfd(int n, int fd);
 
 int		ft_atol(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /*Libft->linked list*/
 typedef struct s_list
