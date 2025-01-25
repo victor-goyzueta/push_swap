@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 04:38:25 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/25 07:12:02 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/25 07:53:27 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	int	i;
+# include "libft.h"
+# include <unistd.h>
+# include <stdlib.h>
 
-	i = 0;
-	while ((s1[i] && s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
-}
+void	validate_arguments(int argc, char **argv);
+void	init_stack(t_list **stack, char **argv);
+void	parsing(char **elements);
+
+#endif
