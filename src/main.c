@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/25 08:49:45 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/25 08:52:53 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,3 +121,14 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+/*
+./push_swap 1 2 3 4 5
+1
+2
+3
+4
+5
+./push_swap "1 2 3 4 5"
+1						(¿Qué pasa?)
+*/
