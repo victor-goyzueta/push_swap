@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/26 17:46:43 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/26 16:31:27 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/26 16:52:23 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	parsing(char ***elements)
+void	parsing(char ***elements)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,7 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 		if (!*elements)
 			ft_perror("Memory allocation failed");
 	}
-	else if (argc > 2)
+	if (argc > 2)
 	{
 		*elements = (char **)malloc(sizeof(char *) * argc);
 		if (!elements)
@@ -88,21 +88,5 @@ void	init_stack(t_list **a, char ***elements)
 		ft_lstadd_back(a, node);
 		i++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	*a = NULL;
-	t_list	*node;
-	char	**elements;
-
-	validate_arguments(argc, &argv, &elements);
-	init_stack(&a, &elements);
-	node = a;
-	while (node)
-	{
-		ft_printf("%d\n", *(int *)(node->content));
-		node = node->next;
-	}
-	return (0);
+	free_elements(elements);
 }
