@@ -6,22 +6,23 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/26 17:46:43 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:00:49 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	parsing(char ***elements)
+static void	check_digit(char ***elements)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (elements[0][i])
 	{
 		j = 0;
-		if (elements[0][i][j] == '-' || elements[0][i][j] == '+')
+		if (elements[0][i][j + 1] &&
+			(elements[0][i][j] == '-' || elements[0][i][j] == '+'))
 			j++;
 		while (ft_isdigit(elements[0][i][j]) && elements[0][i][j])
 			j++;
@@ -29,14 +30,27 @@ static void	parsing(char ***elements)
 			exit(EXIT_FAILURE);
 		i++;
 	}
+}
+
+static void	check_duplicated(char ***elements)
+{
+	int	i;
+	int	j;
+	int	current;
+	int	compared;
+
 	i = 0;
 	while (elements[0][i])
 	{
 		j = i + 1;
-		while (elements[0][j] && (ft_strcmp(elements[0][i], elements[0][j]) != 0))
+		current = ft_atol(elements[0][i]);
+		while (elements[0][j])
+		{
+			compared = ft_atol(elements[0][j]);
+			if (current == compared)
+				ft_perror("Duplicated elements");
 			j++;
-		if (elements[0][j])
-			ft_perror("Duplicated elements");
+		}
 		i++;
 	}
 }
@@ -66,7 +80,8 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 	}
 	else
 		exit(EXIT_FAILURE);
-	parsing(elements);
+	check_digit(elements);
+	check_duplicated(elements);
 }
 
 void	init_stack(t_list **a, char ***elements)
@@ -80,7 +95,7 @@ void	init_stack(t_list **a, char ***elements)
 	{
 		content = (int *)malloc(sizeof(int));
 		if (!content)
-			ft_perror("Memory allocation failed");		
+			ft_perror("Memory allocation failed");
 		*content = ft_atol(elements[0][i]);
 		node = ft_lstnew(content);
 		if (!node)
@@ -92,10 +107,11 @@ void	init_stack(t_list **a, char ***elements)
 
 int	main(int argc, char **argv)
 {
-	t_list	*a = NULL;
+	t_list	*a;
 	t_list	*node;
 	char	**elements;
 
+	a = NULL;
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements);
 	node = a;
