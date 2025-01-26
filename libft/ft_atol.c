@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:00:52 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/24 20:00:55 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:16:24 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	ft_atol(const char *str)
 		str++;
 	}
 	if ((sign * result) > INT_MAX || (sign * result) < INT_MIN)
-		ft_perror("Overflow detected");
+		ft_perror(NULL);
 	return (sign * result);
 }
