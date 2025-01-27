@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 03:11:28 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:18:58 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,25 +105,6 @@ void	init_stack(t_list **a, char ***elements)
 	}
 }
 
-/*Delete before set*/
-void	print_stack(t_list *stack, char *str)
-{
-	t_list	*current;
-
-	ft_printf("%s\n", str);
-	if (!stack)
-	{
-		ft_printf("empty\n");
-		return ;
-	}
-	current = stack;
-	while (current)
-	{
-		ft_printf("%d\n", *(int *)current->content);
-		current = current->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -135,11 +116,11 @@ int	main(int argc, char **argv)
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements);
 	/*test*/
-	print_stack(a, "Stack A:");
-	print_stack(b, "Stack B:");
+	ft_print_stack(a, "Stack A:");
+	ft_print_stack(b, "Stack B:");
 	rotate(&a);
-	print_stack(a, "Rotate A:");
+	ft_print_stack(a, "Rotate A:");
 	reverse_rotate(&a);
-	print_stack(a, "Rev Rotate A:");
+	ft_print_stack(a, "Rev Rotate A:");
 	return (0);
 }

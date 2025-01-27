@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 02:12:40 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:19:20 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@ void	rotate(t_list **stack);
 void	d_rotate(t_list **a, t_list **b);
 void	reverse_rotate(t_list **stack);
 void	d_reverse_rotate(t_list **a, t_list **b);
-
-void	print_stack(t_list *stack, char *str);
 
 #endif

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_print_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 20:22:12 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 03:13:58 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/27 03:16:41 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/27 03:17:00 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	swap(t_list **stack)
+void	ft_print_stack(t_list *stack, char *str)
 {
-	t_list	*first;
-	t_list	*second;
+	t_list	*current;
 
-	if (!stack || !*stack || !(*stack)->next)
+	ft_printf("%s\n", str);
+	if (!stack)
+	{
+		ft_printf("empty\n");
 		return ;
-	first = *stack;
-	second = first->next;
-	
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
-}
-
-void	d_swap(t_list **a, t_list **b)
-{
-	swap(a);
-	swap(b);
+	}
+	current = stack;
+	while (current)
+	{
+		ft_printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
 }

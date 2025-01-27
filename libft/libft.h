@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:48:23 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/25 05:26:35 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:20:46 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_printf(char const *format, ...);
 int		ft_printf_fd(int fd, char const *format, ...);
 void	ft_perror(char *error);
+void	ft_print_stack(t_list *stack, char *str);
 
 int		ft_putchar_fd(char ch, int fd);
 int		ft_putstr_fd(char *str, int fd);

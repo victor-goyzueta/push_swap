@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 22:28:58 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/01/25 04:45:47 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/01/27 03:19:58 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRCS	=	ft_isalpha.c\
 	ft_lstmap_bonus.c\
 	ft_printf.c\
 	ft_perror.c\
+	ft_print_stack.c\
 	ft_printf_utils.c\
 	get_next_line.c\
 	
