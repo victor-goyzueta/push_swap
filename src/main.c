@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/26 20:15:46 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:42:57 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,20 +105,39 @@ void	init_stack(t_list **a, char ***elements)
 	}
 }
 
+/*Delete before set*/
+void	print_stack(t_list *stack, char *str)
+{
+	t_list	*current;
+
+	ft_printf("%s\n", str);
+	if (!stack)
+	{
+		ft_printf("empty\n");
+		return ;
+	}
+	current = stack;
+	while (current)
+	{
+		ft_printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
-	t_list	*node;
+	t_list	*b;
 	char	**elements;
 
 	a = NULL;
+	b = NULL;
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements);
-	node = a;
-	while (node)
-	{
-		ft_printf("%d\n", *(int *)(node->content));
-		node = node->next;
-	}
+	/*test*/
+	print_stack(a, "Stack A:");
+	print_stack(b, "Stack B:");
+	rotate(&a);
+	print_stack(a, "Rotate A:");
 	return (0);
 }

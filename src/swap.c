@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 21:14:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 01:36:27 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/26 20:22:12 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/26 23:41:12 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	swap(t_list **stack)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*first;
+	t_list	*second;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	second = first->next;
+	
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
+}
+
+
+void	d_swap(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
 }

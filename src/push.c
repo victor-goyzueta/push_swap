@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 21:14:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 01:36:27 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/01/26 21:18:45 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/01/26 22:39:46 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	push(t_list **src, t_list **dst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*node;
+	
+	if (!src || !*src)
+		return ;
+	node = *src;
+	*src = node->next;
+	node->next = *dst;
+	*dst = node;
 }
