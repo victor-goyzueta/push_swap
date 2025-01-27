@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/26 23:42:57 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 03:11:28 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,7 @@ int	main(int argc, char **argv)
 	print_stack(b, "Stack B:");
 	rotate(&a);
 	print_stack(a, "Rotate A:");
+	reverse_rotate(&a);
+	print_stack(a, "Rev Rotate A:");
 	return (0);
 }
