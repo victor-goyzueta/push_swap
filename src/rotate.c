@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 22:57:38 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 03:10:30 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:56:33 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	reverse_rotate(t_list **stack)
 	t_list	*last;
 	t_list	*prev;
 	int		i;
-	
+
 	prev = NULL;
 	if (!stack || !*stack)
 		return ;

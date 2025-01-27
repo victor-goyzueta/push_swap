@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 20:22:12 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 03:13:58 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:57:09 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	swap(t_list **stack)
 		return ;
 	first = *stack;
 	second = first->next;
-	
 	first->next = second->next;
 	second->next = first;
 	*stack = second;
