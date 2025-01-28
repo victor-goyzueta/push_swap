@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 22:06:06 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:33:17 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	check_digit(char ***elements)
 		if (elements[0][i][j + 1] &&
 			(elements[0][i][j] == '-' || elements[0][i][j] == '+'))
 			j++;
+		if (elements[0][i][j] == '0' && j != 0)
+			ft_perror(NULL);
 		while (ft_isdigit(elements[0][i][j]) && elements[0][i][j])
 			j++;
 		if (elements[0][i][j])
@@ -110,16 +112,19 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	char	**elements;
-
+	int		size;
+	
 	a = NULL;
 	b = NULL;
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements);
+	size = ft_lstsize(a);
 	/*test*/
 	ft_print_stack(a, "Stack A:");
 	ft_print_stack(b, "Stack B:");
-	push_swap(&a, &b);
+	push_swap(&a, &b, size);
 	ft_print_stack(a, "Stack A:");
+	ft_print_stack(b, "Stack B:");
 	//
 	return (0);
 }

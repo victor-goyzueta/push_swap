@@ -6,20 +6,22 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 22:09:47 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/28 02:31:52 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_ordered(t_list **a, int *flag)
+static void	check_ordered(t_list **a, int *flag, int size)
 {
 	int		current;
 	int		compared;
 	t_list	*head;
 
+	if (!a || !*a)
+		return ;
 	head = *a;
-	if (*flag == 0)
+	if (*flag && size > 1)
 	{
 		current = *(int *)head->content;
 		while (head->next)
@@ -29,21 +31,38 @@ void	check_ordered(t_list **a, int *flag)
 			if (current > compared)
 				break ;
 			current = *(int *)head->content;
-		}
-		if (!head->next)
-		{
-			ft_printf("Niiice");
-			exit(EXIT_SUCCESS);
+			size--;
 		}
 	}
-	*flag = 1;
+	if (!head->next && size == 1)
+		exit(EXIT_SUCCESS);
+	*flag = 0;
 	return ;
 }
 
-void	push_swap(t_list **a, t_list **b)
+void	size_two(t_list **a, t_list **b, int *flag, int size)
 {
-	static int	flag = 0;
+	if (size != 2)
+		return ;
+	ss(a, NULL);
+	*flag = 1;
+	push_swap(a, b, size);
+}
 
-	(void)b;
-	check_ordered(a, &flag);
+void	size_three(t_list **a, t_list **b, int *flag, int size)
+{
+	(void)a, (void)b;
+	
+	if (size != 3)
+		return ;
+	*flag = 1;
+}
+
+void	push_swap(t_list **a, t_list **b, int size)
+{
+	static int	flag = 1;
+	
+	check_ordered(a, &flag, size);
+	size_two(a, b, &flag, size);
+	size_three(a, b, &flag, size);
 }
