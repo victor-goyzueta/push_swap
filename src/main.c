@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/28 01:33:17 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:12:16 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	check_digit(char ***elements)
 		if (elements[0][i][j + 1] &&
 			(elements[0][i][j] == '-' || elements[0][i][j] == '+'))
 			j++;
-		if (elements[0][i][j] == '0' && j != 0)
+		if (elements[0][i][j] == '0' &&
+			(j != 0 || elements[0][i][j + 1] != '\0'))
 			ft_perror(NULL);
 		while (ft_isdigit(elements[0][i][j]) && elements[0][i][j])
 			j++;
@@ -113,7 +114,7 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	char	**elements;
 	int		size;
-	
+
 	a = NULL;
 	b = NULL;
 	validate_arguments(argc, &argv, &elements);

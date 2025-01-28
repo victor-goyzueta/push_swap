@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/28 02:31:52 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:11:56 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	size_two(t_list **a, t_list **b, int *flag, int size)
 
 void	size_three(t_list **a, t_list **b, int *flag, int size)
 {
-	(void)a, (void)b;
-	
 	if (size != 3)
 		return ;
+	//
 	*flag = 1;
+	push_swap(a, b, size);
 }
 
 void	push_swap(t_list **a, t_list **b, int size)
