@@ -6,22 +6,24 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/29 15:52:58 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:28:36 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_ordered(t_list **a, int *flag, int size)
+static void	check_sorted(t_list **a, t_info *info)
 {
 	int		current;
 	int		compared;
+	int		total;
 	t_list	*head;
-
+	
 	if (!a || !*a)
 		return ;
+	total = (int)info->size;
 	head = *a;
-	if (*flag && size > 1)
+	if (info->flag && total > 1)
 	{
 		current = *(int *)head->content;
 		while (head->next)
@@ -31,38 +33,37 @@ static void	check_ordered(t_list **a, int *flag, int size)
 			if (current > compared)
 				break ;
 			current = *(int *)head->content;
-			size--;
+			total--;
 		}
 	}
-	if (!head->next && size == 1)
+	if (!head->next && total == 1)
 	{
-		ft_print_stack(*a, "Sorted A:");
+		ft_printf("Sorted Stack A");
 		exit(EXIT_SUCCESS);
 	}
-	*flag = 0;
-	return ;
+	info->flag = false;
 }
 
-void	size_two(t_list **a, t_list **b, int *flag, int size)
+void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
-	if (size != 2)
+	if (tmp_size != 2)
 		return ;
 	ss(a, NULL);
-	*flag = 1;
-	push_swap(a, b, size);
+	info->flag = true;
+	if (info->size == tmp_size)
+		push_swap(a, b, info);
 }
 
-void	size_three(t_list **a, t_list **b, int *flag, int size)
+void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	int	first;
 	int	second;
 	int	last;
 
-	(void)b;
 	first = *(int *)(*a)->content;
 	second = *(int *)((*a)->next)->content;
 	last = *(int *)(ft_lstlast(*a))->content;
-	if (size != 3)
+	if (tmp_size != 3)
 		return ;
 	if (first > second && first < last)
 		ss(a, NULL);
@@ -70,15 +71,25 @@ void	size_three(t_list **a, t_list **b, int *flag, int size)
 		rr(a, NULL);
 	else
 		rrr(a, NULL);
-	*flag = 1;
-	push_swap(a, b, size);
+	info->flag = true;
+	if (info->size == tmp_size)
+		push_swap(a, b, info);
 }
 
-void	push_swap(t_list **a, t_list **b, int size)
+void	size_four(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
-	static int	flag = 1;
-	
-	check_ordered(a, &flag, size);
-	size_two(a, b, &flag, size);
-	size_three(a, b, &flag, size);
+	(void)tmp_size;
+	size_three(a, b, info, 3);
+	check_sorted(a, info);
+	size_two(a, b, info, 2);
+	info->flag = true;
+	push_swap(a, b, info);
+}
+
+void	push_swap(t_list **a, t_list **b, t_info *info)
+{
+	check_sorted(a, info);
+	size_two(a, b, info, info->size);
+	size_three(a, b, info, info->size);
+	size_four(a, b, info, info->size);
 }

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/29 15:40:05 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:08:59 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,12 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 	check_duplicated(elements);
 }
 
-void	init_stack(t_list **a, char ***elements)
+void	init_stack_info(t_list **a, char ***elements, t_info **info)
 {
 	int		i;
 	int		*content;
 	t_list	*node;
+	t_info	*n_info;
 
 	i = 0;
 	while (elements[0][i])
@@ -106,24 +107,34 @@ void	init_stack(t_list **a, char ***elements)
 		ft_lstadd_back(a, node);
 		i++;
 	}
+	n_info = (t_info *)malloc(sizeof(t_info));
+	if (!n_info)
+		ft_perror(NULL);
+	n_info->size = ft_lstsize(*a);
+	n_info->flag = true;
+	*info = n_info;
 }
 
 int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	t_info	**info;
 	char	**elements;
-	int		size;
 
 	a = NULL;
 	b = NULL;
+	info = NULL;
 	validate_arguments(argc, &argv, &elements);
-	init_stack(&a, &elements);
-	size = ft_lstsize(a);
+	info = (t_info **)malloc(sizeof(t_info *));
+	if (!info)
+		ft_perror(NULL);
+	init_stack_info(&a, &elements, info);
 	/*test*/
 	ft_print_stack(a, "Stack A:");
 	ft_print_stack(b, "Stack B:");
 	ft_printf("\n");
-	push_swap(&a, &b, size);
+	push_swap(&a, &b, *info);
+	ft_print_stack(a, "Stack A:");
 	return (0);
 }
