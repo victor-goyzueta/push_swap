@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/28 18:12:16 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:40:05 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,7 @@ int	main(int argc, char **argv)
 	/*test*/
 	ft_print_stack(a, "Stack A:");
 	ft_print_stack(b, "Stack B:");
+	ft_printf("\n");
 	push_swap(&a, &b, size);
-	ft_print_stack(a, "Stack A:");
-	ft_print_stack(b, "Stack B:");
-	//
 	return (0);
 }
