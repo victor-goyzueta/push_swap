@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 20:30:37 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:09:44 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,26 @@ void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size)
 		push_swap(a, b, info);
 }
 
-void	size_three(t_list **sorting, t_list **unused, t_info *info, int tmp_size)
+void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	int	first;
 	int	second;
 	int	last;
 
-	first = *(int *)(*sorting)->content;
-	second = *(int *)((*sorting)->next)->content;
-	last = *(int *)(ft_lstlast(*sorting))->content;
+	first = *(int *)(*a)->content;
+	second = *(int *)((*a)->next)->content;
+	last = *(int *)(ft_lstlast(*a))->content;
 	if (tmp_size != 3)
 		return ;
 	if (first > second && first < last)
-		ss(sorting, NULL);
+		ss(a, NULL);
 	else if (first > second && first > last)
-		rr(sorting, NULL);
+		rr(a, NULL);
 	else
-		rrr(sorting, NULL);
+		rrr(a, NULL);
 	info->flag = true;
 	if (info->size == tmp_size)
-		push_swap(sorting, unused, info);
+		push_swap(a, b, info);
 }
 
 void	push_swap(t_list **a, t_list **b, t_info *info)

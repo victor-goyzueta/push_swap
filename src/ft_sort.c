@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:36:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 21:03:15 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:17:35 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,24 @@ t_list	*get_nearest(t_list **stack, t_info *info, int compared)
 	return (nearest);
 }
 
+void ft_sort_b(t_list **a, t_list **b, t_info *info, int tmp_size)
+{
+	/*sort bigger to smaller*/
+	/*if firstB is firstA nearestBigger (pa)*/
+	if (info->size == tmp_size)
+	{
+		while (tmp_size--)
+			pa(b, a);
+	}		
+	else
+		ft_sort_a(a, b, info, info->size);
+
 void	ft_sort_a(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	t_list	*nearest;
 
-	if (ft_lstsize >= 3)
-		size_three(b, a, info, 3);
+	if (ft_lstsize(*b) >= 3)
+		ft_sort_b(b, a, info, ft_lstsize(*b));
 	nearest = get_nearest(a, info, info->smallest);
 	if (nearest == *a)
 		pb(a, b);
@@ -98,6 +110,4 @@ void	ft_sort_a(t_list **a, t_list **b, t_info *info, int tmp_size)
 	info->flag = true;
 	if (info->size == tmp_size)
 		push_swap(a, b, info);
-	/*STACK B*/
-	//
 }

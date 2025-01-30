@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 20:57:33 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:17:10 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	ft_sort_a(t_list **a, t_list **b, t_info *info, int tmp_size);
 
 void	ss(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
+void	pa(t_list **b, t_list **a);
 void	pb(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
