@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/29 19:06:34 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:36:04 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_info
 }	t_info;
 
 void	validate_arguments(int argc, char ***argv, char ***elements);
-void	init_stack_info(t_list **a, char ***elements, t_info **info);
+void	init_stack(t_list **a, char ***elements, t_info **info);
 void	swap(t_list **stack);
 void	d_swap(t_list **a, t_list **b);
 void	push(t_list **src, t_list **dst);

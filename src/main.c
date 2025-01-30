@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/29 19:08:59 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:09:37 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,22 +119,19 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	t_info	**info;
+	t_info	*info;
 	char	**elements;
 
 	a = NULL;
 	b = NULL;
 	info = NULL;
 	validate_arguments(argc, &argv, &elements);
-	info = (t_info **)malloc(sizeof(t_info *));
-	if (!info)
-		ft_perror(NULL);
-	init_stack_info(&a, &elements, info);
+	init_stack(&a, &elements, &info);
 	/*test*/
 	ft_print_stack(a, "Stack A:");
 	ft_print_stack(b, "Stack B:");
 	ft_printf("\n");
-	push_swap(&a, &b, *info);
+	push_swap(&a, &b, info);
 	ft_print_stack(a, "Stack A:");
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/01/29 18:50:43 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/01/30 17:33:28 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = src/main.c\
 	src/rotate.c\
 	src/push_swap.c\
 	src/print_mov.c\
+	src/init_stack.c\
 
 OBJ = $(SRCS:%.c=objs/%.o)
 

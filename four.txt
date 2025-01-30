@@ -1,3 +1,8 @@
+merge sort
+heap sort
+quicksort
+
+
 A			13 FAILS | 11 CHECK (24)
 
 -START 1	CHECK
