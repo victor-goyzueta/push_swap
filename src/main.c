@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 18:09:37 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:58:30 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,34 +87,6 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 	check_duplicated(elements);
 }
 
-void	init_stack_info(t_list **a, char ***elements, t_info **info)
-{
-	int		i;
-	int		*content;
-	t_list	*node;
-	t_info	*n_info;
-
-	i = 0;
-	while (elements[0][i])
-	{
-		content = (int *)malloc(sizeof(int));
-		if (!content)
-			ft_perror(NULL);
-		*content = ft_atol(elements[0][i]);
-		node = ft_lstnew(content);
-		if (!node)
-			ft_perror(NULL);
-		ft_lstadd_back(a, node);
-		i++;
-	}
-	n_info = (t_info *)malloc(sizeof(t_info));
-	if (!n_info)
-		ft_perror(NULL);
-	n_info->size = ft_lstsize(*a);
-	n_info->flag = true;
-	*info = n_info;
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -133,5 +105,6 @@ int	main(int argc, char **argv)
 	ft_printf("\n");
 	push_swap(&a, &b, info);
 	ft_print_stack(a, "Stack A:");
+	ft_print_stack(b, "Stack B:");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:46:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/28 01:44:40 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:24:02 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,16 @@ void	ss(t_list **a, t_list **b)
 	}
 }
 
-void	pp(t_list **a, t_list **b)
+void	pa(t_list **b, t_list **a)
 {
-	if (!b)
-	{
-		push(b, a);
-		ft_printf("pa\n");
-	}
-	else
-	{
-		push(a, b);
-		ft_printf("pb\n");
-	}
+	push(b, a);
+	ft_printf("pa\n");
+}
+
+void	pb(t_list **a, t_list **b)
+{
+	push(a, b);
+	ft_printf("pb\n");
 }
 
 void	rr(t_list **a, t_list **b)

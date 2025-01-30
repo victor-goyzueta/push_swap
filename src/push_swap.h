@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 17:36:04 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:57:33 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 typedef struct s_info
 {
 	int		size;
+	int		smallest;
+	int		biggest;
 	bool	flag;
 }	t_info;
 
@@ -34,8 +36,14 @@ void	d_rotate(t_list **a, t_list **b);
 void	reverse_rotate(t_list **stack);
 void	d_reverse_rotate(t_list **a, t_list **b);
 void	push_swap(t_list **a, t_list **b, t_info *info);
+void	check_sorted(t_list **a, t_info *info);
+void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size);
+void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size);
+void	ft_sort_a(t_list **a, t_list **b, t_info *info, int tmp_size);
+
 void	ss(t_list **a, t_list **b);
-void	pp(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 

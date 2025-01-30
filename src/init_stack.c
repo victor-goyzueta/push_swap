@@ -6,11 +6,47 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 18:08:44 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:09:51 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	get_smallest(t_list **a)
+{
+	t_list	*head;
+	int		compared;
+	int		smallest;
+
+	head = *a;
+	smallest = *(int *)head->content;
+	while (head->next)
+	{
+		compared = *(int *)head->next->content;
+		if (compared < smallest)
+			smallest = compared;
+		head = head->next;
+	}
+	return (smallest);
+}
+
+static int	get_biggest(t_list **a)
+{
+	t_list	*head;
+	int		compared;
+	int		biggest;
+
+	head = *a;
+	biggest = *(int *)head->content;
+	while (head->next)
+	{
+		compared = *(int *)head->next->content;
+		if (compared > biggest)
+			biggest = compared;
+		head = head->next;
+	}
+	return (biggest);
+}
 
 static void	init_info(t_list **a, t_info **info)
 {
@@ -20,6 +56,8 @@ static void	init_info(t_list **a, t_info **info)
 	if (!node)
 		ft_perror(NULL);
 	node->size = ft_lstsize(*a);
+	node->smallest = get_smallest(a);
+	node->biggest = get_biggest(a);
 	node->flag = true;
 	*info = node;
 	info = &node;
