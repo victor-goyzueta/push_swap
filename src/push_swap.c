@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/31 20:10:33 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:54:20 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,69 +44,77 @@ void	check_sorted(t_list **a, t_info *info)
 	info->flag = false;
 }
 
-void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size)
+void	size_two(t_list **a, t_info *info, int tmp_size)
 {
-	(void)b;
 	if (tmp_size == 2)
-	{
 		ss(a, NULL);
-		info->flag = true;
-		check_sorted(a, info);
-	}
+	info->flag = true;
 }
 
-void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size)
+void	size_three(t_list **a, t_info *info, int tmp_size)
 {
-	int	first;
-	int	second;
-	int	last;
+	t_list	*smallest;
+	t_list	*biggest;
 
 	if (tmp_size == 3)
 	{
-		first = *(int *)(*a)->content;
-		second = *(int *)((*a)->next)->content;
-		last = *(int *)(ft_lstlast(*a))->content;
-		if (first > second && first < last)
+		smallest = get_nearest(a, info, info->smallest);
+		biggest = get_nearest(a, info, info->biggest);
+		if (*a == smallest)
+		{
+			rrr(a, NULL);
 			ss(a, NULL);
-		else if (first > second && first > last)
+		}
+		else if (*a == biggest && ft_lstlast(*a) == smallest)
+		{
 			rr(a, NULL);
+			ss(a, NULL);
+		}
+		else if (*a == biggest&& ft_lstlast(*a) != smallest)
+			rr(a, NULL);
+		else if (ft_lstlast(*a) == biggest)
+			ss(a, NULL);
 		else
 			rrr(a, NULL);
-		info->flag = true;
 	}
-	if (info->size == 3)
-		push_swap(a, b, info, info->size);
+	info->flag = true;
 }
 
 void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	t_list	*smaller;
 
-	(void)tmp_size;
-	if (tmp_size > 3)
+	smaller = get_nearest(a, info, info->smallest);
+	if (tmp_size > 3 && ft_lstsize(*b) < 1)
 	{
-		smaller = get_nearest(a, info, info->smallest);
-		if (*(int *)smaller->content != info->smallest)
-			rrr(a, NULL);
-		else if (smaller == *a)
+		if (info->smallest == *(int *)(*a)->content || smaller == *a)
 			pb(a, b);
+		else if (smaller == (*a)->next)
+		{
+			ss(a, NULL);
+			pb(a, b);
+		}
 		else
-			size_five(a, b, info, ft_lstsize(*a));
+			rrr(a, NULL);
+		size_five(a, b, info, ft_lstsize(*a));
 	}
 	else
 	{
-		size_three(a, b, info, 3);
+		size_three(a, info, 3);
 		pa(b, a);
+		if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+			ss(a, NULL);
 	}
 	info->flag = true;
-	check_sorted(a, info);
 }
 
 void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size)
 {
-	(void)tmp_size;
+	(void)tmp_size, (void)b;
 	check_sorted(a, info);
-	size_two(a, b, info, info->size);
-	size_three(a, b, info, info->size);
+	size_two(a, info, info->size);
+	size_three(a, info, info->size);
+	check_sorted(a, info);
 	size_five(a, b, info, info->size);
+	check_sorted(a, info);
 }
