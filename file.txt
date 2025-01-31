@@ -1,0 +1,10 @@
+Stack A:
+3
+2
+1
+4
+Stack B:
+empty
+
+sa
+pb

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 21:17:10 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:26:36 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rotate(t_list **stack);
 void	d_rotate(t_list **a, t_list **b);
 void	reverse_rotate(t_list **stack);
 void	d_reverse_rotate(t_list **a, t_list **b);
-void	push_swap(t_list **a, t_list **b, t_info *info);
+void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size);
 void	check_sorted(t_list **a, t_info *info);
 void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size);
