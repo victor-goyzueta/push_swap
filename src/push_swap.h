@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/31 14:25:15 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:43:16 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size);
 void	check_sorted(t_list **a, t_info *info);
 void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	size_three(t_list **a, t_list **b, t_info *info, int tmp_size);
-void	ft_sort_a(t_list **a, t_list **b, t_info *info, int tmp_size);
+void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size);
+
+t_list	*get_nearest(t_list **stack, t_info *info, int compared);
+
 //funtion to sort decre
 //funtion to sort ascen
 //funtion to check doble moves
