@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/01 17:46:16 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/01 20:29:50 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,20 @@ void	check_sorted(t_list **a, t_info *info)
 	info->flag = false;
 }
 
-void	size_two(t_list **a, t_info *info, int tmp_size)
+void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	if (tmp_size == 2)
-		ss(a, NULL);
+	{
+		if (!b || !a)
+		{
+			if (!b)
+				ss(a, NULL);
+			else
+				ss(NULL, b);
+		}
+		else
+			ss(a, b);
+	}
 	info->flag = true;
 }
 
@@ -111,9 +121,9 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 
 void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size)
 {
-	(void)tmp_size, (void)b;
+	(void)tmp_size;
 	check_sorted(a, info);
-	size_two(a, info, info->size);
+	size_two(a, b, info, info->size);
 	size_three(a, info, info->size);
 	size_five(a, b, info, info->size);
 	check_sorted(a, info);
