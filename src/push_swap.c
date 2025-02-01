@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/01 17:26:52 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:46:16 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,9 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 	check_sorted(a, info);
 	if (tmp_size > 3 && ft_lstsize(*b) < 1)
 	{
-		if (info->smallest == *(int *)(*a)->content || smaller == *a)
+		if (*(int *)(*a)->content == info->biggest)
+			rr(a, NULL);
+		else if (info->smallest == *(int *)(*a)->content || smaller == *a)
 			pb(a, b);
 		else if (smaller == (*a)->next)
 			ss(a, NULL);

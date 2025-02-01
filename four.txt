@@ -3,7 +3,7 @@ heap sort
 quicksort
 
 
-A			3  ¿? | 21 CHECK (24)
+A			24 CHECK (24)
 
 -START 1	CHECK
 
@@ -117,7 +117,7 @@ A			3  ¿? | 21 CHECK (24)
 4
 1
 
--START 17	¿?
+-START 17	CHECK
 
 3
 4
