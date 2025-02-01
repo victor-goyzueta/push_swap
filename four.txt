@@ -47,7 +47,7 @@ A			3  ¿? | 21 CHECK (24)
 3
 2
 
--START 7	¿?
+-START 7	CHECK
 
 2
 1
@@ -68,7 +68,7 @@ A			3  ¿? | 21 CHECK (24)
 1
 4
 
--START 10	¿?
+-START 10	CHECK
 
 2
 3

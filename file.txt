@@ -1,21 +1,10 @@
 Stack A:
+2
+1
 3
 4
-1
-2
 Stack B:
 empty
 
-rra
-rra
-pb
-rra
 sa
-pa
-Stack A:
-1
-2
-4
-3
-Stack B:
-empty
+Sorted Stack A

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/31 21:54:20 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:26:52 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,27 +85,26 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 	t_list	*smaller;
 
 	smaller = get_nearest(a, info, info->smallest);
+	check_sorted(a, info);
 	if (tmp_size > 3 && ft_lstsize(*b) < 1)
 	{
 		if (info->smallest == *(int *)(*a)->content || smaller == *a)
 			pb(a, b);
 		else if (smaller == (*a)->next)
-		{
 			ss(a, NULL);
-			pb(a, b);
-		}
 		else
 			rrr(a, NULL);
+		info->flag = true;
 		size_five(a, b, info, ft_lstsize(*a));
 	}
 	else
 	{
+		info->flag = true;
 		size_three(a, info, 3);
 		pa(b, a);
 		if (*(int *)(*a)->content > *(int *)(*a)->next->content)
 			ss(a, NULL);
 	}
-	info->flag = true;
 }
 
 void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size)
@@ -114,7 +113,6 @@ void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size)
 	check_sorted(a, info);
 	size_two(a, info, info->size);
 	size_three(a, info, info->size);
-	check_sorted(a, info);
 	size_five(a, b, info, info->size);
 	check_sorted(a, info);
 }
