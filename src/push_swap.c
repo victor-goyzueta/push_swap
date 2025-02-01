@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/01 20:29:50 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:05:28 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	t_list	*smaller;
 
+	/*while ft_lstsize(*a)-- to elements > 4?*/
 	smaller = get_nearest(a, info, info->smallest);
 	check_sorted(a, info);
 	if (tmp_size > 3 && ft_lstsize(*b) < 1)
