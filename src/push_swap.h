@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/01 20:28:07 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 18:36:34 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_info
 	int		size;
 	int		smallest;
 	int		biggest;
-	bool	flag;
 }	t_info;
 
 void	validate_arguments(int argc, char ***argv, char ***elements);
@@ -48,11 +47,10 @@ void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	size_three(t_list **a, t_info *info, int tmp_size);
 void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size);
 /*utils*/
-void	check_sorted(t_list **a, t_info *info);
+void	check_success(t_list **a, t_info *info);
+bool	is_sorted(t_list **a, t_list **b);
 t_list	*get_nearest(t_list **stack, t_info *info, int compared);
 
-//funtion to sort decre
-//funtion to sort ascen
 //funtion to check doble moves
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:32:45 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/31 19:43:06 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:56:04 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,54 @@ t_list	*get_nearest(t_list **stack, t_info *info, int compared)
 	return (nearest);
 }
 
-// void	ft_sort_increase(t_list **a, t_list **b, t_info *info, int tmp_size)
-// {
-// 	//
-// }
+bool	is_sorted(t_list **a, t_list **b)
+{
+	int		current;
+	int 	compared;
+	t_list	*head;
 
-// void	ft_sort_decrease(t_list **a, t_list **b, t_info *info, int tmp_size)
-// {
-// 	//
-// }
+	if (!b)
+		head = *a;
+	else
+		head = *b;
+	current = *(int *)head->content;
+	while (head->next)
+	{
+		head = head->next;
+		compared = *(int *)head->content;
+		if (current > compared && !b)
+			return (false);
+		if (current < compared && !a)
+			return (false);
+		current = *(int *)head->content;
+	}
+	return (true);
+}
+
+void	check_success(t_list **a, t_info *info)
+{
+	int		current;
+	int		compared;
+	int		total;
+	t_list	*head;
+	
+	if (!a || !*a)
+		return ;
+	total = (int)info->size;
+	head = *a;
+	if (total > 1)
+	{
+		current = *(int *)head->content;
+		while (head->next)
+		{
+			head = head->next;
+			compared = *(int *)head->content;
+			if (current > compared)
+				break ;
+			current = *(int *)head->content;
+			total--;
+		}
+	}
+	if (!head->next && total == 1)
+		exit(EXIT_SUCCESS);
+}

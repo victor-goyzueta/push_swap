@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/30 19:09:51 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 18:36:47 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	init_info(t_list **a, t_info **info)
 	node->size = ft_lstsize(*a);
 	node->smallest = get_smallest(a);
 	node->biggest = get_biggest(a);
-	node->flag = true;
 	*info = node;
 	info = &node;
 }
