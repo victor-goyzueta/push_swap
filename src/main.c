@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 20:49:04 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:57:24 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	main(int argc, char **argv)
 	info = NULL;
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements, &info);
-	/*test*/
 	push_swap(&a, &b, info, info->size);
 	return (0);
 }
