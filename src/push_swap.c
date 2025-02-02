@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 20:55:57 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:29:26 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,26 @@ void	size_three(t_list **a, t_info *info, int tmp_size)
 			rr(a, NULL);
 			ss(a, NULL);
 		}
-		else if (*a == biggest&& ft_lstlast(*a) != smallest)
+		else if (*a == biggest && ft_lstlast(*a) != smallest)
 			rr(a, NULL);
 		else if (ft_lstlast(*a) == biggest)
 			ss(a, NULL);
 		else
 			rrr(a, NULL);
 	}
+}
+
+static void	moves_five(t_list **a, t_list **b, t_info *info, t_list *smaller)
+{
+	if (*(int *)(*a)->content == info->biggest)
+		rr(a, NULL);
+	else if (info->smallest == *(int *)(*a)->content || smaller == *a)
+		pb(a, b);
+	else if (smaller == (*a)->next)
+		ss(a, NULL);
+	else
+		rrr(a, NULL);
+	size_five(a, b, info, ft_lstsize(*a));
 }
 
 void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
@@ -64,22 +77,12 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 	smaller = get_nearest(a, info, info->smallest);
 	check_success(a, info);
 	if (tmp_size > 3 && ft_lstsize(*b) < 2)
-	{
-		if (*(int *)(*a)->content == info->biggest)
-			rr(a, NULL);
-		else if (info->smallest == *(int *)(*a)->content || smaller == *a)
-			pb(a, b);
-		else if (smaller == (*a)->next)
-			ss(a, NULL);
-		else
-			rrr(a, NULL);
-		size_five(a, b, info, ft_lstsize(*a));
-	}
+		moves_five(a, b, info, smaller);
 	else
 	{
 		size_three(a, info, 3);
 		while (ft_lstsize(*b))
-		{	
+		{
 			if (*b && !is_sorted(NULL, b))
 				ss(NULL, b);
 			pa(b, a);
@@ -87,14 +90,4 @@ void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size)
 				ss(a, NULL);
 		}
 	}
-}
-
-void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size)
-{
-	(void)tmp_size;
-	check_success(a, info);
-	size_two(a, b, info, info->size);
-	size_three(a, info, info->size);
-	size_five(a, b, info, info->size);
-	check_success(a, info);
 }

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 20:57:24 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:29:21 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,16 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 		exit(EXIT_FAILURE);
 	check_digit(elements);
 	check_duplicated(elements);
+}
+
+void	push_swap(t_list **a, t_list **b, t_info *info, int tmp_size)
+{
+	(void)tmp_size;
+	check_success(a, info);
+	size_two(a, b, info, info->size);
+	size_three(a, info, info->size);
+	size_five(a, b, info, info->size);
+	check_success(a, info);
 }
 
 int	main(int argc, char **argv)

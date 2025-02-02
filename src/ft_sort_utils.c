@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:32:45 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 20:56:04 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:27:28 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_list	*get_smaller(t_list **stack)
 	return (smaller);
 }
 
- static t_list	*get_bigger(t_list **stack)
+static t_list	*get_bigger(t_list **stack)
 {
 	t_list	*bigger;
 	int		first;
@@ -79,7 +79,7 @@ t_list	*get_nearest(t_list **stack, t_info *info, int compared)
 bool	is_sorted(t_list **a, t_list **b)
 {
 	int		current;
-	int 	compared;
+	int		compared;
 	t_list	*head;
 
 	if (!b)
@@ -106,7 +106,7 @@ void	check_success(t_list **a, t_info *info)
 	int		compared;
 	int		total;
 	t_list	*head;
-	
+
 	if (!a || !*a)
 		return ;
 	total = (int)info->size;

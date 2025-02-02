@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 18:36:34 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/02 21:26:27 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pb(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 /*algorithm*/
-void	push_swap(t_list **a, t_list **b, t_info *info, int	tmp_size);
+void	push_swap(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	size_two(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	size_three(t_list **a, t_info *info, int tmp_size);
 void	size_five(t_list **a, t_list **b, t_info *info, int tmp_size);
