@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 21:29:21 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/03 01:15:31 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,12 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 	check_duplicated(elements);
 }
 
-void	push_swap(t_list **a, t_list **b, t_info *info, int tmp_size)
+void	push_swap(t_list **a, t_list **b, t_info *info)
 {
-	(void)tmp_size;
 	check_success(a, info);
-	size_two(a, b, info, info->size);
+	size_two(a, info);
 	size_three(a, info, info->size);
-	size_five(a, b, info, info->size);
+	size_any(a, b, info, info->size);
 	check_success(a, info);
 }
 
@@ -109,6 +108,6 @@ int	main(int argc, char **argv)
 	info = NULL;
 	validate_arguments(argc, &argv, &elements);
 	init_stack(&a, &elements, &info);
-	push_swap(&a, &b, info, info->size);
+	push_swap(&a, &b, info);
 	return (0);
 }

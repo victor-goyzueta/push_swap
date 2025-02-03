@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/01/31 19:43:46 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/02/03 01:40:38 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,14 @@ CFLAGS = -Wall -Wextra -Werror -I libft
 LIBFT = libft/libft.a
 
 SRCS = src/main.c\
+	src/init_stack.c\
 	src/swap.c\
 	src/push.c\
 	src/rotate.c\
-	src/push_swap.c\
 	src/print_mov.c\
-	src/init_stack.c\
-	src/ft_sort_utils.c\
+	src/size_short.c\
+	src/size_long.c\
+	src/utils.c\
 
 OBJ = $(SRCS:%.c=objs/%.o)
 
