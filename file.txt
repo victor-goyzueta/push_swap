@@ -1,0 +1,17 @@
+Stack A:
+4
+3
+5
+1
+2
+Stack B:
+empty
+
+rra
+rra
+pb
+pb
+sa
+pa
+pa
+Success!
