@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:21:15 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/03 03:21:38 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/03 21:54:43 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ static void	first_checks(t_list **a, t_list **b, t_info *info)
 	t_list	*smaller;
 	t_list	*bigger;
 
-	while (ft_lstsize (*a) > 2 && ft_lstsize(*b) > 2)
+	if (is_sorted(a, NULL) && is_sorted(NULL, b))
+		return ;
+	while (ft_lstsize (*a) > 2 && ft_lstsize(*b) > 1)
 	{
 		smaller = get_nearest(b, info, info->smallest);
 		bigger = get_nearest(b, info, info->biggest);
@@ -34,6 +36,8 @@ static void	first_checks(t_list **a, t_list **b, t_info *info)
 
 static void	second_checks(t_list **a, t_list **b, t_info *info, t_list *smaller)
 {
+	if (ft_lstsize(*a) < 4)
+		return ;
 	if (*(int *)(*a)->content == info->biggest)
 		rr(a, NULL);
 	else if (info->smallest == *(int *)(*a)->content || smaller == *a)
@@ -42,7 +46,7 @@ static void	second_checks(t_list **a, t_list **b, t_info *info, t_list *smaller)
 		ss(a, NULL);
 	else
 		rrr(a, NULL);
-	size_any(a, b, info, ft_lstsize(*a));
+	size_long(a, b, info, ft_lstsize(*a));
 }
 
 static void	third_checks(t_list **a, t_list **b, t_info *info)
@@ -50,7 +54,13 @@ static void	third_checks(t_list **a, t_list **b, t_info *info)
 	size_three(a, info, 3);
 	while (ft_lstsize(*b))
 	{
-		if (*b && !is_sorted(NULL, b))
+		if (ft_lstsize(*b) > 3 && (abs((*(int *)(*b)->next->content) - info->smallest) 
+			< abs((*(int *)(*b)->next->content - info->biggest))))
+		{
+			pa(b, a);
+			size_long(a, b, info, ft_lstsize(*a));
+		}
+		else if ((*b)->next && !is_sorted(NULL, b))
 			ss(NULL, b);
 		pa(b, a);
 		if (*a && !is_sorted(a, NULL))
@@ -58,19 +68,44 @@ static void	third_checks(t_list **a, t_list **b, t_info *info)
 	}
 }
 
-// static void	check_doble_moves(t_list **a, t_list **b, t_info *info)
-// {
-// 	//
-// }
+static void	check_doble_moves(t_list **a, t_list **b, t_info *info)
+{
+	t_list	*smaller_a;
+	t_list	*bigger_a;
+	t_list	*smaller_b;
+	t_list	*bigger_b;
 
-void	size_any(t_list **a, t_list **b, t_info *info, int tmp_size)
+	if (ft_lstsize(*a) < 2 || ft_lstsize(*b) < 2)
+		return ;
+	while (1)
+	{
+		smaller_a = get_nearest(a, info, info->smallest);
+		bigger_a = get_nearest(a, info, info->biggest);
+		smaller_b = get_nearest(b, info, info->smallest);
+		bigger_b = get_nearest(b, info, info->biggest);
+		check_success(a, info);
+		if (((*a)->next == smaller_a && (*b)->next == bigger_b)
+			&& (*a != bigger_a && *b != smaller_b))
+			ss(a, b);
+		else if (*a == bigger_a && *b == smaller_b)
+			rr(a, b);
+		else if (ft_lstlast(*a) == smaller_a && ft_lstlast(*b) == bigger_b)
+			rrr(a, b);
+		else
+			break ;
+	}
+	check_success(a, info);
+}
+
+void	size_long(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
 	t_list	*smaller;
 
+	(void)tmp_size;
 	smaller = get_nearest(a, info, info->smallest);
 	check_success(a, info);
+	check_doble_moves(a, b, info);
 	first_checks(a, b, info);
-	if (tmp_size > 3 && ft_lstsize(*a) > 3)
-		second_checks(a, b, info, smaller);
+	second_checks(a, b, info, smaller);
 	third_checks(a, b, info);
 }

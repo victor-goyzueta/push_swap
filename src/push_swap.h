@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/03 01:32:44 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:43:17 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	rrr(t_list **a, t_list **b);
 void	push_swap(t_list **a, t_list **b, t_info *info);
 void	size_two(t_list **a, t_info *info);
 void	size_three(t_list **a, t_info *info, int tmp_size);
-void	size_any(t_list **a, t_list **b, t_info *info, int tmp_size);
+void	size_long(t_list **a, t_list **b, t_info *info, int tmp_size);
 /*utils*/
 void	check_success(t_list **a, t_info *info);
 bool	is_sorted(t_list **a, t_list **b);

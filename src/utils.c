@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:32:45 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/03 02:27:00 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:29:17 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	check_success(t_list **a, t_info *info)
 	}
 	if (!head->next && total == 1)
 	{
-		ft_printf("Success!");
+		ft_printf("Stack A sorted | Stack B empty");
 		exit(EXIT_SUCCESS);
 	}
 }
