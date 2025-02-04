@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:21:15 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/03 21:54:43 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/04 01:24:04 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,16 @@ static void	first_checks(t_list **a, t_list **b, t_info *info)
 	}
 }
 
-static void	second_checks(t_list **a, t_list **b, t_info *info, t_list *smaller)
+static void	second_checks(t_list **a, t_list **b, t_info *info)
 {
-	if (ft_lstsize(*a) < 4)
+	t_list	*smaller;
+
+	smaller = get_nearest(a, info, info->smallest);
+	if (ft_lstsize(*a) < 4 || (is_sorted(a, NULL) && is_sorted(NULL, b)))
 		return ;
 	if (*(int *)(*a)->content == info->biggest)
 		rr(a, NULL);
-	else if (info->smallest == *(int *)(*a)->content || smaller == *a)
+	else if (smaller == *a)
 		pb(a, b);
 	else if (smaller == (*a)->next)
 		ss(a, NULL);
@@ -58,7 +61,7 @@ static void	third_checks(t_list **a, t_list **b, t_info *info)
 			< abs((*(int *)(*b)->next->content - info->biggest))))
 		{
 			pa(b, a);
-			size_long(a, b, info, ft_lstsize(*a));
+			size_long(a, b, info, ft_lstsize(*a));//
 		}
 		else if ((*b)->next && !is_sorted(NULL, b))
 			ss(NULL, b);
@@ -99,13 +102,11 @@ static void	check_doble_moves(t_list **a, t_list **b, t_info *info)
 
 void	size_long(t_list **a, t_list **b, t_info *info, int tmp_size)
 {
-	t_list	*smaller;
-
 	(void)tmp_size;
-	smaller = get_nearest(a, info, info->smallest);
 	check_success(a, info);
 	check_doble_moves(a, b, info);
 	first_checks(a, b, info);
-	second_checks(a, b, info, smaller);
+	second_checks(a, b, info);
 	third_checks(a, b, info);
+	check_success(a, info);
 }

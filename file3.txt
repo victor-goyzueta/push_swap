@@ -1,10 +1,12 @@
-Elements: [5]
+Elements: [7]
 Stack A:
-3
 5
+7
 1
 2
+3
 4
+6
 Stack B:
 empty
 

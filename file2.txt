@@ -1,16 +1,26 @@
-Elements: [5]
+Elements: [6]
 Stack A:
-3
 5
+3
+6
 1
 2
 4
 Stack B:
 empty
 
+sa
 pb
-ra
+rra
+rra
+rra
 pa
+sa
+rra
+sa
+rra
+sa
+rra
 sa
 rra
 sa
