@@ -1,18 +1,28 @@
-Elements: [5]
+Elements: [8]
 Stack A:
-3
 5
-1
 2
+8
+1
 4
+6
+7
+3
 Stack B:
 empty
 
+sa
+pb
+rra
+pb
 pb
 ra
 pa
 sa
-rra
+pb
+rb
 sa
-rra
-sa
+pa
+pa
+pa
+Success
