@@ -6,20 +6,47 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/03 01:30:43 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:45:13 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	size_two(t_list **a, t_info *info)
+static void	check_doble_moves(t_list **a, t_list **b, t_info *info)
 {
-	if (info->size == 2)
-		ss(a, NULL);
+	t_list	*smaller_a;
+	t_list	*bigger_a;
+	t_list	*smaller_b;
+	t_list	*bigger_b;
+
+	if (ft_lstsize(*a) < 2 || ft_lstsize(*b) < 2)
+		return ;
+	while (1)
+	{
+		smaller_a = get_nearest(a, info, info->smallest);
+		bigger_a = get_nearest(a, info, info->biggest);
+		smaller_b = get_nearest(b, info, info->smallest);
+		bigger_b = get_nearest(b, info, info->biggest);
+		check_success(a, info);
+		if (((*a)->next == smaller_a) && ((*b)->next == bigger_b))
+			ss(a, b);
+		else if (*a == bigger_a && *b == smaller_b)
+			rr(a, b);
+		else if (ft_lstlast(*a) == smaller_a && ft_lstlast(*b) == bigger_b)
+			rrr(a, b);
+		else
+			break ;
+	}
 	check_success(a, info);
 }
 
-void	size_three(t_list **a, t_info *info, int tmp_size)
+static void	size_two(t_list **a, t_info *info)
+{
+	if (info->size == 2 && !is_sorted(a, NULL))
+		ss(a, NULL);
+}
+
+static void	size_three(t_list **a, t_info *info, int tmp_size)
 {
 	t_list	*smallest;
 	t_list	*biggest;
@@ -45,5 +72,41 @@ void	size_three(t_list **a, t_info *info, int tmp_size)
 		else
 			rrr(a, NULL);
 	}
+}
+
+static void	size_five(t_list **a, t_list **b, t_info *info)
+{
+	t_list	*smallest;
+	t_list	*biggest;
+
+	while (ft_lstsize(*a) > 3)
+	{
+		smallest = get_nearest(a, info, info->smallest);
+		biggest = get_nearest(a, info, info->biggest);
+
+		if (*a == smallest)
+			pb(a, b);
+		else if ((*a)->next == smallest)
+			ss(a, NULL);
+		else
+			rrr(a, NULL);
+	}
+	check_doble_moves(a, b, info);
+	size_three(a, info, 3);
+	while (ft_lstsize(*b))
+	{
+		pa(b, a);
+		if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+			ss(a, NULL);
+	}
+}
+
+void	size_short(t_list **a, t_list **b, t_info *info)
+{
+	if (info->size > 5)
+		return ;
+	size_two(a, info);
+	size_three(a, info, info->size);
+	size_five(a, b, info);
 	check_success(a, info);
 }

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/02 18:36:47 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:36:09 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,29 @@ static void	init_info(t_list **a, t_info **info)
 	info = &node;
 }
 
+static void	get_index(t_list **a)
+{
+	t_list	*current;
+	t_list	*compared;
+
+	if (!a || !*a)
+		return ;
+	current = *a;
+	while (current->next)
+	{
+		compared = current->next;
+		while (compared)
+		{
+			if (*(int *)current->content < *(int *)compared->content)
+				compared->i += 1;
+			else
+				current->i += 1;
+			compared = compared->next;
+		}
+		current = current->next;
+	}
+}
+
 void	init_stack(t_list **a, char ***elements, t_info **info)
 {
 	int		i;
@@ -81,5 +104,6 @@ void	init_stack(t_list **a, char ***elements, t_info **info)
 		ft_lstadd_back(a, node);
 		i++;
 	}
+	get_index(a);
 	init_info(a, info);
 }

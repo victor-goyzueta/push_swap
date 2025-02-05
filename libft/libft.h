@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 19:48:23 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/27 03:20:46 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:48:22 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 typedef struct s_list
 {
 	void			*content;
+	int				i;
 	struct s_list	*next;
 }	t_list;
 

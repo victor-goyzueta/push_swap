@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/04 12:46:44 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:40:47 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,8 @@ void	validate_arguments(int argc, char ***argv, char ***elements)
 void	push_swap(t_list **a, t_list **b, t_info *info)
 {
 	check_success(a, info);
-	size_two(a, info);
-	size_three(a, info, info->size);
-	size_long(a, b, info, info->size);
+	size_short(a, b, info);
+	size_long(a, b, info);
 	check_success(a, info);
 }
 
