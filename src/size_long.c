@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:21:15 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/04 17:13:49 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:31:38 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	first_checks(t_list **a, t_list **b, t_info *info)
 
 static void	second_checks(t_list **a, t_list **b, t_info *info)
 {
-	t_list	*smaller;
+	t_list		*smaller;
+	static int	count;
 
 	smaller = get_nearest(a, info, info->smallest);
 	if (ft_lstsize(*a) < 4 || (is_sorted(a, NULL) &&
