@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 03:16:41 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/05 23:42:03 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 00:25:01 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_stack(t_list *stack, char *str)
 	current = stack;
 	while (current)
 	{
-		ft_printf("[%d]%d\n", current->i, *(int *)current->content);
+		ft_printf("%d\n", *(int *)current->content);
 		current = current->next;
 	}
 }

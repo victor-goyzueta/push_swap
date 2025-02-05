@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/05 23:36:09 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 00:20:06 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ static void	get_index(t_list **a)
 		while (compared)
 		{
 			if (*(int *)current->content < *(int *)compared->content)
-				compared->i += 1;
+				compared->index += 1;
 			else
-				current->i += 1;
+				current->index += 1;
 			compared = compared->next;
 		}
 		current = current->next;
