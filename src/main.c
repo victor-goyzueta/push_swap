@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 02:07:20 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 02:10:16 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	info = NULL;
 	validate_arguments(argc, &argv, &elements);
-	/*test*/
 	init_stack(&a, &elements, &info);
-	ft_print_stack(a, "Stack A:");
-	ft_printf("\n");
 	push_swap(&a, &b, info);
 	return (0);
 }
