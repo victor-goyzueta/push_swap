@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:35 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 00:27:46 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 02:07:20 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	push_swap(t_list **a, t_list **b, t_info *info)
 	check_success(a, info);
 	size_short(a, b, info);
 	size_long(a, b, info);
-	check_success(a, info);
 }
 
 int	main(int argc, char **argv)
@@ -108,9 +107,7 @@ int	main(int argc, char **argv)
 	validate_arguments(argc, &argv, &elements);
 	/*test*/
 	init_stack(&a, &elements, &info);
-	ft_printf("Elements: [%d]\n", info->size);
 	ft_print_stack(a, "Stack A:");
-	ft_print_stack(b, "Stack B:");
 	ft_printf("\n");
 	push_swap(&a, &b, info);
 	return (0);

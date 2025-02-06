@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:35:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 00:22:25 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 02:06:07 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ static void	sort_first(t_list **a, t_list **b, t_info *info)
 	range = get_range(info->size);
 	while (ft_lstsize(*a))
 	{
-		if ((*a)->index <= i)
+		if (*(int *)(*a)->content <= i)
 		{
 			pb(a, b);
-			rr(NULL, b);
+			if (ft_lstsize(*b) > 1)
+				rr(NULL, b);
 			i++;
 		}
-		else if ((*a)->index > i && (*a)->index <= (i + range))
+		else if (*(int *)(*a)->content > i &&
+			*(int *)(*a)->content <= (i + range))
 		{
 			pb(a, b);
 			i++;
@@ -54,13 +56,50 @@ static void	sort_first(t_list **a, t_list **b, t_info *info)
 	}
 }
 
-// static void	sort_second(t_list **a, t_list **b, t_info *info)
-// {
-// 	//
-// }
+static int	counter(t_list **b, int size)
+{
+	int		i;
+	t_list	*node;
+
+	i = 0;
+	node = *b;
+	while (node && (node)->index != size)
+	{
+		node = (*node).next;
+		i++;
+	}
+	return (i);
+}
+
+static void	sort_second(t_list **a, t_list **b, t_info *info)
+{
+	int	rotates;
+	int	i;
+
+	i = (info->size - 1);
+	while (ft_lstsize(*b))
+	{
+		rotates = counter(b, i);
+		if (rotates <= (ft_lstsize(*b) / 2))
+		{
+			while ((*b)->index != i)
+				rr(NULL, b);
+			pa(b, a);
+			i--;
+		}
+		else
+		{
+			while ((*b)->index != i)
+				rrr(NULL, b);
+			pa(b, a);
+			i--;
+		}
+	}
+}
 
 void	size_long(t_list **a, t_list **b, t_info *info)
 {
 	sort_first(a, b, info);
-//	sort_second(a, b, info);
+	sort_second(a, b, info);
+	check_success(a, info);
 }
