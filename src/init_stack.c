@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 19:55:59 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:43:45 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	get_index(t_list **a)
 	t_list	*compared;
 
 	if (!a || !*a)
-		ft_perror(NULL) ;
+		ft_perror(NULL);
 	current = *a;
 	while (current->next)
 	{
