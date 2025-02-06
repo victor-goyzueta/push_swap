@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 01:21:15 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 16:37:32 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:24:09 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void	second_checks(t_list **a, t_list **b, t_info *info)
 	t_list		*smaller;
 
 	smaller = get_nearest(a, info, info->smallest);
-	if (ft_lstsize(*a) < 4 || (is_sorted(a, NULL) &&
-		(ft_lstsize(*b) > 2 && is_sorted(NULL, b) &&
-		(abs(*(int *)(*a)->content - info->smallest) >
-		abs(*(int *)(*b)->content - info->smallest)))))
+	if (ft_lstsize(*a) < 4 || (is_sorted(a, NULL)
+			&& (ft_lstsize(*b) > 2 && is_sorted(NULL, b)
+				&& (abs(*(int *)(*a)->content - info->smallest)
+				> abs(*(int *)(*b)->content - info->smallest)))))
 		return ;
 	if (*(int *)(*a)->content == info->biggest)
 		rr(a, NULL);
@@ -67,11 +67,12 @@ static void	third_checks(t_list **a, t_list **b, t_info *info)
 	size_three(a, info, 3);
 	while (ft_lstsize(*b))
 	{
-		if (ft_lstsize(*b) > 3 && (abs((*(int *)(*b)->next->content) - info->smallest) 
+		if (ft_lstsize(*b) > 3
+			&& (abs((*(int *)(*b)->next->content) - info->smallest)
 			< abs((*(int *)(*b)->next->content - info->biggest))))
 		{
 			pa(b, a);
-			worst_case_long(a, b, info, ft_lstsize(*a));//
+			worst_case_long(a, b, info, ft_lstsize(*a));
 		}
 		else if ((*b)->next && !is_sorted(NULL, b))
 			ss(NULL, b);

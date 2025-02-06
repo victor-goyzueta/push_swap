@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:45:27 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/25 17:13:34 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:42:50 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		count;
 
-	if (!s)
+	if (!s | !*s)
 		return (NULL);
 	count = count_words(s, c);
 	strs = (char **)malloc(sizeof(char *) * (count + 1));

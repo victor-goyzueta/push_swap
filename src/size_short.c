@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 16:38:12 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:21:05 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ static void	size_five(t_list **a, t_list **b, t_info *info)
 	while (ft_lstsize(*a) > 3)
 	{
 		smallest = get_nearest(a, info, info->smallest);
-
 		if (*a == smallest)
 			pb(a, b);
 		else if ((*a)->next == smallest)

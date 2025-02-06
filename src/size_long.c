@@ -6,13 +6,13 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:35:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 16:36:52 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:20:48 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	get_range(int	size)
+static int	get_range(int size)
 {
 	int	result;
 
