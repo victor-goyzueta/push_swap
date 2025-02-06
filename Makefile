@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/02/05 23:40:28 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/02/06 16:36:04 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = src/main.c\
 	src/print_mov.c\
 	src/size_short.c\
 	src/size_long.c\
+	src/worst_case_long.c\
 	src/utils.c\
 
 OBJ = $(SRCS:%.c=objs/%.o)

@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:35:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 02:06:07 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:36:52 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ static void	sort_second(t_list **a, t_list **b, t_info *info)
 
 void	size_long(t_list **a, t_list **b, t_info *info)
 {
+	if (is_sorted(NULL, a))
+		worst_case_long(a, b, info, info->size);
 	sort_first(a, b, info);
 	sort_second(a, b, info);
 	check_success(a, info);

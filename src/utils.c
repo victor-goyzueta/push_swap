@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:32:45 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 02:11:35 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:33:38 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,24 +76,24 @@ t_list	*get_nearest(t_list **stack, t_info *info, int compared)
 	return (nearest);
 }
 
-bool	is_sorted(t_list **a, t_list **b)
+bool	is_sorted(t_list **increase, t_list **decrease)
 {
 	int		current;
 	int		compared;
 	t_list	*head;
 
-	if (!b)
-		head = *a;
+	if (!decrease)
+		head = *increase;
 	else
-		head = *b;
+		head = *decrease;
 	current = *(int *)head->content;
 	while (head->next)
 	{
 		head = head->next;
 		compared = *(int *)head->content;
-		if (current > compared && !b)
+		if (current > compared && !decrease)
 			return (false);
-		if (current < compared && !a)
+		if (current < compared && !increase)
 			return (false);
 		current = *(int *)head->content;
 	}

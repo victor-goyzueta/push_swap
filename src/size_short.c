@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:43:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/05 23:45:13 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:38:12 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	size_two(t_list **a, t_info *info)
 		ss(a, NULL);
 }
 
-static void	size_three(t_list **a, t_info *info, int tmp_size)
+void	size_three(t_list **a, t_info *info, int tmp_size)
 {
 	t_list	*smallest;
 	t_list	*biggest;
@@ -77,12 +77,10 @@ static void	size_three(t_list **a, t_info *info, int tmp_size)
 static void	size_five(t_list **a, t_list **b, t_info *info)
 {
 	t_list	*smallest;
-	t_list	*biggest;
 
 	while (ft_lstsize(*a) > 3)
 	{
 		smallest = get_nearest(a, info, info->smallest);
-		biggest = get_nearest(a, info, info->biggest);
 
 		if (*a == smallest)
 			pb(a, b);

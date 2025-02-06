@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/05 23:40:29 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:38:28 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 /*algorithm*/
 void	push_swap(t_list **a, t_list **b, t_info *info);
+void	size_three(t_list **a, t_info *info, int tmp_size);
 void	size_short(t_list **a, t_list **b, t_info *info);
 void	size_long(t_list **a, t_list **b, t_info *info);
+void	worst_case_long(t_list **a, t_list **b, t_info *info, int tmp_size);
 /*utils*/
 void	check_success(t_list **a, t_info *info);
-bool	is_sorted(t_list **a, t_list **b);
+bool	is_sorted(t_list **increase, t_list **decrease);
 t_list	*get_nearest(t_list **stack, t_info *info, int compared);
 
 #endif
