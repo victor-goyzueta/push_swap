@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:00:52 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/28 01:15:47 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 00:19:48 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_atol(const char *str)
 
 	sign = 1;
 	result = 0;
+	if (!str || !*str)
+		ft_perror(NULL);
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	if (*str == '-')
