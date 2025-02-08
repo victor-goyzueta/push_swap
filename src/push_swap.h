@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 16:38:28 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:28:43 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,12 @@ void	worst_case_long(t_list **a, t_list **b, t_info *info, int tmp_size);
 void	check_success(t_list **a, t_info *info);
 bool	is_sorted(t_list **increase, t_list **decrease);
 t_list	*get_nearest(t_list **stack, t_info *info, int compared);
+/*free*/
+void	free_array(char **arr);
+void	free_list(t_list **stack);
+void	free_list(t_list **stack);
+void	free_info(t_info **info);
+void	free_all(t_list **stack, t_info **info, char **arr);
+void	ft_exit_free(int EXIT, t_list **stack, t_info **info, char **arr);
 
 #endif

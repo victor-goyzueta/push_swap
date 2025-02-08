@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 20:43:45 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 22:05:19 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	init_info(t_list **a, t_info **info)
 
 	node = (t_info *)malloc(sizeof(t_info));
 	if (!node)
-		ft_perror(NULL);
+		ft_exit_free(EXIT_FAILURE, a, info, NULL);
 	node->size = ft_lstsize(*a);
 	node->smallest = get_smallest(a);
 	node->biggest = get_biggest(a);
@@ -68,7 +68,7 @@ static void	get_index(t_list **a)
 	t_list	*compared;
 
 	if (!a || !*a)
-		ft_perror(NULL);
+		ft_exit_free(EXIT_FAILURE, a, NULL, NULL);
 	current = *a;
 	while (current->next)
 	{
@@ -96,14 +96,15 @@ void	init_stack(t_list **a, char ***elements, t_info **info)
 	{
 		content = (int *)malloc(sizeof(int));
 		if (!content)
-			ft_perror(NULL);
+			ft_exit_free(EXIT_FAILURE, a, NULL, *elements);
 		*content = ft_atol(elements[0][i]);
 		node = ft_lstnew(content);
 		if (!node)
-			ft_perror(NULL);
+			ft_exit_free(EXIT_FAILURE, a, NULL, *elements);
 		ft_lstadd_back(a, node);
 		i++;
 	}
+	free_array(*elements);
 	get_index(a);
 	init_info(a, info);
 }

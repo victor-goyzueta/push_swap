@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:32:45 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/06 16:33:38 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 22:08:53 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,5 @@ void	check_success(t_list **a, t_info *info)
 		}
 	}
 	if (!head->next && total == 1)
-		exit(EXIT_SUCCESS);
+		ft_exit_free(EXIT_SUCCESS, a, &info, NULL);
 }

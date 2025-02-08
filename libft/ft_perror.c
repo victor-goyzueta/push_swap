@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:52:49 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/01/26 20:12:00 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 22:14:22 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_perror(char *error)
 {
 	if (!error)
-		ft_printf_fd(2, "Error");
+		ft_printf_fd(2, "Error\n");
 	else
 		ft_printf_fd(2, "Error: %s\n", error);
 	exit(EXIT_FAILURE);
