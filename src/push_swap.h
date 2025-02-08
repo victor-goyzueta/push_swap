@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/08 23:28:43 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/08 23:32:39 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ bool	is_sorted(t_list **increase, t_list **decrease);
 t_list	*get_nearest(t_list **stack, t_info *info, int compared);
 /*free*/
 void	free_array(char **arr);
-void	free_list(t_list **stack);
 void	free_list(t_list **stack);
 void	free_info(t_info **info);
 void	free_all(t_list **stack, t_info **info, char **arr);
