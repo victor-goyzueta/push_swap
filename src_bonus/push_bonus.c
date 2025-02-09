@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 04:38:25 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/09 04:02:45 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/02/09 02:16:34 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/02/09 02:16:42 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker_bonus.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	push(t_list **src, t_list **dst)
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	if (!src || !*src)
+		return ;
+	node = *src;
+	*src = node->next;
+	node->next = *dst;
+	*dst = node;
 }

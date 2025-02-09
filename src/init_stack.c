@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:33:44 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/08 22:05:19 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:31:20 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	init_stack(t_list **a, char ***elements, t_info **info)
 	i = 0;
 	while (elements[0][i])
 	{
-		content = (int *)malloc(sizeof(int));
+		content = (int *)ft_calloc(1, sizeof(int));
 		if (!content)
 			ft_exit_free(EXIT_FAILURE, a, NULL, *elements);
-		*content = ft_atol(elements[0][i]);
+		*content = ft_atoi(elements[0][i]);
 		node = ft_lstnew(content);
 		if (!node)
 			ft_exit_free(EXIT_FAILURE, a, NULL, *elements);

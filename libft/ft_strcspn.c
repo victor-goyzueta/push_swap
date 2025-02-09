@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 04:38:25 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/09 04:02:45 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/02/09 04:21:54 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/02/09 04:24:08 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
 	int	i;
+	int	j;
+	int	b;
 
 	i = 0;
-	while ((s1[i] || s2[i]))
+	b = 0;
+	if (!s[i])
+		return (0);
+	while (s[i])
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		j = 0;
+		while (reject[j])
+		{
+			if (s[i] == reject[j])
+				return (b);
+			j++;
+		}
 		i++;
+		b++;
 	}
-	return (0);
+	return (b);
 }

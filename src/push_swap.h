@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/08 23:32:39 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/09 00:23:45 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_info
 	int		biggest;
 }	t_info;
 
-void	validate_arguments(int argc, char ***argv, char ***elements);
 void	init_stack(t_list **a, char ***elements, t_info **info);
 /*moves*/
 void	swap(t_list **stack);

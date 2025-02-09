@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 04:38:25 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/09 04:02:45 by vgoyzuet         ###   ########.fr       */
+/*   Created: 2025/02/09 00:50:13 by vgoyzuet          #+#    #+#             */
+/*   Updated: 2025/02/09 02:14:07 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "checker_bonus.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	swap(t_list **stack)
 {
-	int	i;
+	t_list	*first;
+	t_list	*second;
 
-	i = 0;
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
+}
+
+void	d_swap(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
 }

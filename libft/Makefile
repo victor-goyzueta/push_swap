@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 22:28:58 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/01/27 21:45:12 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/02/09 04:23:44 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS	=	ft_isalpha.c\
 	ft_atoi.c\
 	ft_atol.c\
 	ft_calloc.c\
+	ft_strcspn.c\
 	ft_strdup.c\
 	ft_substr.c\
 	ft_strjoin.c\
