@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 00:59:58 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/09 00:23:45 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:00:37 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	push_swap(t_list **a, t_list **b, t_info *info);
 void	size_three(t_list **a, t_info *info, int tmp_size);
 void	size_short(t_list **a, t_list **b, t_info *info);
 void	size_long(t_list **a, t_list **b, t_info *info);
-void	worst_case_long(t_list **a, t_list **b, t_info *info, int tmp_size);
 /*utils*/
 void	check_success(t_list **a, t_info *info);
 bool	is_sorted(t_list **increase, t_list **decrease);

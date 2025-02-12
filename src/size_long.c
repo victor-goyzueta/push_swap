@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:35:43 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/08 23:27:38 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:58:19 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,21 @@ static void	sort_first(t_list **a, t_list **b, t_info *info)
 	range = get_range(info->size);
 	while (ft_lstsize(*a))
 	{
-		if ((int)(*a)->index <= i)
+		if ((*a)->index <= i)
 		{
 			pb(a, b);
 			if (ft_lstsize(*b) > 1)
 				rr(NULL, b);
 			i++;
 		}
-		else if ((int)(*a)->index > i &&
-			(int)(*a)->index <= (i + range))
+		else if ((*a)->index <= (i + range))
 		{
 			pb(a, b);
 			i++;
 		}
+		else if (ft_lstlast(*a)->index <= i
+			|| ft_lstlast(*a)->index <= (i + range))
+			rrr(a, NULL);
 		else
 			rr(a, NULL);
 	}
@@ -82,14 +84,14 @@ static void	sort_second(t_list **a, t_list **b, t_info *info)
 		rotates = counter(b, i);
 		if (rotates <= (ft_lstsize(*b) / 2))
 		{
-			while ((int)(*b)->index != i)
+			while ((*b)->index != i)
 				rr(NULL, b);
 			pa(b, a);
 			i--;
 		}
 		else
 		{
-			while ((int)(*b)->index != i)
+			while ((*b)->index != i)
 				rrr(NULL, b);
 			pa(b, a);
 			i--;
@@ -99,8 +101,6 @@ static void	sort_second(t_list **a, t_list **b, t_info *info)
 
 void	size_long(t_list **a, t_list **b, t_info *info)
 {
-	if (is_sorted(NULL, a))
-		worst_case_long(a, b, info, info->size);
 	sort_first(a, b, info);
 	sort_second(a, b, info);
 	check_success(a, info);

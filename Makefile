@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/02/09 03:32:25 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/02/12 18:00:28 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRCS = src/main.c\
 	src/print_mov.c\
 	src/size_short.c\
 	src/size_long.c\
-	src/worst_case_long.c\
 	src/utils.c\
 	src/free_utils.c\
 
