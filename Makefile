@@ -6,7 +6,7 @@
 #    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/02/12 18:00:28 by vgoyzuet         ###   ########.fr        #
+#    Updated: 2025/02/13 00:53:15 by vgoyzuet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ BNS_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I libft
+CFLAGS += -I inc
 
 LIBFT = libft/libft.a
 
