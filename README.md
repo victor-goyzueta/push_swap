@@ -1,5 +1,7 @@
 # push_swap
 
+![push_swap](push_swap_v1.gif)
+
 # Objetivo general de `push_swap`
 
 ## Indicaciones
