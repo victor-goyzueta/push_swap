@@ -1,6 +1,6 @@
 # push_swap
 
-![push_swap](push_swap_v1.gif)
+![push_swap](push_swap.gif)
 
 # Objetivo general de `push_swap`
 
@@ -103,7 +103,7 @@ void size_long(t_list **a, t_list **b, t_info *info)
 
 Necesitaremos `get_range` y una variable `index` inicializada a `0`.
 
-$$range = \sqrt{TESA} * 1.4$$
+![Formula](https://latex.codecogs.com/png.latex?range%20%3D%20%5Csqrt%7BTESA%7D%20%5Ctimes%201.4)
 
 *TESA: Total de enteros en la Stack A.*
 
