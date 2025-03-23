@@ -101,11 +101,7 @@ void size_long(t_list **a, t_list **b, t_info *info)
 
 ### `sort_first`
 
-Necesitaremos `get_range` y una variable `index` inicializada a `0`.
-
-![Formula](https://latex.codecogs.com/png.latex?range%20%3D%20%5Csqrt%7BTESA%7D%20%5Ctimes%201.4)
-
-*TESA: Total de enteros en la Stack A.*
+/
 
 Envía todos los enteros de la Stack A hacia la Stack B ordenándolos siguiendo las siguientes condiciones:
 
