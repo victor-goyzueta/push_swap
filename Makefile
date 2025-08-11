@@ -1,46 +1,34 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/01/25 05:13:35 by vgoyzuet          #+#    #+#              #
-#    Updated: 2025/02/13 00:53:15 by vgoyzuet         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+GREEN		=	\033[1;32m
+CYAN		=	\033[0;36m
+WHITE		=	\033[0m
+CLEAR		=	\r\033[K
 
-GREEN	=	\033[1;32m
-CYAN	=	\033[0;36m
-WHITE	=	\033[0m
-CLEAR	=	\r\033[K
+NAME		=	push_swap
+BNS_NAME	=	checker
 
-NAME = push_swap
-BNS_NAME = checker
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -I libft
+CFLAGS 		+=	-I inc
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I libft
-CFLAGS += -I inc
+LIBFT		=	libft/libft.a
 
-LIBFT = libft/libft.a
+SRCS		=	src/main.c					\
+				src/init_stack.c			\
+				src/swap.c					\
+				src/push.c					\
+				src/rotate.c				\
+				src/print_mov.c				\
+				src/size_short.c			\
+				src/size_long.c				\
+				src/utils.c					\
+				src/free_utils.c			\
 
-SRCS = src/main.c\
-	src/init_stack.c\
-	src/swap.c\
-	src/push.c\
-	src/rotate.c\
-	src/print_mov.c\
-	src/size_short.c\
-	src/size_long.c\
-	src/utils.c\
-	src/free_utils.c\
-
-BNS_SRCS = src_bonus/main_bonus.c\
-	src_bonus/checker_bonus.c\
-	src_bonus/swap_bonus.c\
-	src_bonus/push_bonus.c\
-	src_bonus/rotate_bonus.c\
-	src_bonus/utils_bonus.c\
+BNS_SRCS	=	src_bonus/main_bonus.c		\
+				src_bonus/checker_bonus.c	\
+				src_bonus/swap_bonus.c		\
+				src_bonus/push_bonus.c		\
+				src_bonus/rotate_bonus.c	\
+				src_bonus/utils_bonus.c		\
 
 
 OBJ = $(SRCS:%.c=objs/%.o)

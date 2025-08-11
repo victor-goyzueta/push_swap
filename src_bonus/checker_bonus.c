@@ -6,7 +6,7 @@
 /*   By: vgoyzuet <vgoyzuet@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 02:18:21 by vgoyzuet          #+#    #+#             */
-/*   Updated: 2025/02/09 04:28:25 by vgoyzuet         ###   ########.fr       */
+/*   Updated: 2025/08/11 23:14:38 by vgoyzuet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	checker(t_list **a, t_list **b)
 
 	size = ft_lstsize(*a);
 	move = NULL;
-	move = get_next_line(0);
+	move = get_next_line(STDIN_FILENO);
 	while (move)
 	{
 		make_moves(a, b, move);
